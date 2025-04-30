@@ -3,6 +3,7 @@
 import Link from 'next/link'
 import { useTheme } from 'next-themes'
 import { useEffect, useState } from 'react'
+import { FaSun, FaMoon } from 'react-icons/fa'
 
 export default function Navbar() {
   const { theme, setTheme } = useTheme()
@@ -16,10 +17,10 @@ export default function Navbar() {
   }
 
   return (
-    <header className="sticky top-0 z-50 w-full backdrop-blur-md bg-white/70 dark:bg-black/70 border-b border-gray-200 dark:border-gray-800">
+    <header className="sticky top-0 z-50 w-full backdrop-blur-md bg-white/70 dark:bg-black/70 border-b border-gray-100 dark:border-gray-800">
       <nav className="max-w-6xl mx-auto flex items-center justify-between p-4">
         {/* Logo */}
-        <Link href="/" className="text-2xl font-bold text-blue-700 dark:text-blue-400">
+        <Link href="/" className="text-2xl font-bold text-green-400 dark:text-gray-100">
           Terence.dev
         </Link>
 
@@ -27,28 +28,29 @@ export default function Navbar() {
         <ul className="hidden md:flex gap-8 items-center">
           <li>
             <Link href="/projects" className="relative group">
-              <span className="transition-colors duration-300 group-hover:text-blue-600 dark:group-hover:text-blue-400">
+              <span className="transition-colors duration-300 group-hover:text-blue-600 dark:group-hover:text-red-400">
                 Projects
               </span>
-              <span className="absolute left-0 bottom-0 w-0 h-0.5 bg-blue-600 dark:bg-blue-400 transition-all group-hover:w-full"></span>
+              <span className="absolute left-0 bottom-0 w-0 h-0.5 bg-green-600 dark:bg-gray-100 transition-all group-hover:w-full"></span>
             </Link>
           </li>
           <li>
             <Link href="/contact" className="relative group">
-              <span className="transition-colors duration-300 group-hover:text-blue-600 dark:group-hover:text-blue-400">
+              <span className="transition-colors duration-300 group-hover:text-blue-600 dark:group-hover:text-red-400">
                 Contact
               </span>
-              <span className="absolute left-0 bottom-0 w-0 h-0.5 bg-blue-600 dark:bg-blue-400 transition-all group-hover:w-full"></span>
+              <span className="absolute left-0 bottom-0 w-0 h-0.5 bg-green-600 dark:bg-gray-100 transition-all group-hover:w-full"></span>
             </Link>
           </li>
-          {/* Dark/Light Toggle */}
+
+          {/* Pure Sun/Moon Toggle */}
           {mounted && (
             <button
               onClick={() => setTheme(theme === 'dark' ? 'light' : 'dark')}
               aria-label="Toggle Dark Mode"
-              className="text-xl ml-4 transition-transform hover:scale-110"
+              className="transition-transform duration-300 hover:scale-110 active:scale-95 text-2xl text-green-500 dark:text-yellow-300"
             >
-              {theme === 'dark' ? '☀️' : '🌙'}
+              {theme === 'dark' ? <FaMoon /> : <FaSun />}
             </button>
           )}
         </ul>
@@ -71,6 +73,7 @@ export default function Navbar() {
             <Link href="/contact" onClick={() => setMenuOpen(false)}>
               Contact
             </Link>
+
             {mounted && (
               <button
                 onClick={() => {
@@ -78,9 +81,9 @@ export default function Navbar() {
                   setMenuOpen(false)
                 }}
                 aria-label="Toggle Dark Mode"
-                className="text-2xl"
+                className="transition-transform duration-300 hover:scale-110 active:scale-95 text-2xl text-blue-500 dark:text-yellow-300"
               >
-                {theme === 'dark' ? '☀️' : '🌙'}
+                {theme === 'dark' ? <FaMoon /> : <FaSun />}
               </button>
             )}
           </div>
@@ -89,4 +92,8 @@ export default function Navbar() {
     </header>
   )
 }
+
+
+
+
 
