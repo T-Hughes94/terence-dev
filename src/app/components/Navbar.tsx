@@ -5,6 +5,9 @@ import { useTheme } from 'next-themes'
 import { useEffect, useState } from 'react'
 import { FaSun, FaMoon } from 'react-icons/fa'
 
+const SunIcon = FaSun as unknown as React.FC<React.SVGProps<SVGSVGElement>>
+const MoonIcon = FaMoon as unknown as React.FC<React.SVGProps<SVGSVGElement>>
+
 export default function Navbar() {
   const { theme, setTheme } = useTheme()
   const [mounted, setMounted] = useState(false)
@@ -43,14 +46,14 @@ export default function Navbar() {
             </Link>
           </li>
 
-          {/* Pure Sun/Moon Toggle */}
+          {/* Toggle */}
           {mounted && (
             <button
               onClick={() => setTheme(theme === 'dark' ? 'light' : 'dark')}
               aria-label="Toggle Dark Mode"
-              className="transition-transform duration-300 hover:scale-110 active:scale-95 text-2xl text-green-500 dark:text-yellow-300"
+              className="text-2xl text-gray-700 dark:text-gray-200 hover:scale-110 transition-transform"
             >
-              {theme === 'dark' ? <FaMoon /> : <FaSun />}
+              {theme === 'dark' ? <SunIcon className="w-5 h-5" /> : <MoonIcon className="w-5 h-5" />}
             </button>
           )}
         </ul>
@@ -64,7 +67,7 @@ export default function Navbar() {
           ☰
         </button>
 
-        {/* Mobile Dropdown Menu */}
+        {/* Mobile Dropdown */}
         {menuOpen && (
           <div className="absolute top-16 left-0 w-full bg-white dark:bg-black flex flex-col items-center gap-6 py-6 border-t border-gray-200 dark:border-gray-800 md:hidden">
             <Link href="/projects" onClick={() => setMenuOpen(false)}>
@@ -73,7 +76,6 @@ export default function Navbar() {
             <Link href="/contact" onClick={() => setMenuOpen(false)}>
               Contact
             </Link>
-
             {mounted && (
               <button
                 onClick={() => {
@@ -81,9 +83,9 @@ export default function Navbar() {
                   setMenuOpen(false)
                 }}
                 aria-label="Toggle Dark Mode"
-                className="transition-transform duration-300 hover:scale-110 active:scale-95 text-2xl text-blue-500 dark:text-yellow-300"
+                className="text-2xl text-gray-700 dark:text-gray-200"
               >
-                {theme === 'dark' ? <FaMoon /> : <FaSun />}
+                {theme === 'dark' ? <SunIcon className="w-5 h-5" /> : <MoonIcon className="w-5 h-5" />}
               </button>
             )}
           </div>
@@ -92,6 +94,8 @@ export default function Navbar() {
     </header>
   )
 }
+
+
 
 
 

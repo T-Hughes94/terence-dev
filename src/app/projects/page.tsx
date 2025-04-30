@@ -2,19 +2,20 @@
 
 import Image from 'next/image'
 import Link from 'next/link'
-import Navbar from './components/'
+import Navbar from './../components/Navbar'
+
 
 const projects = [
   {
     title: 'A Plus Truffles',
     description: 'Handcrafted vegan chocolates website, optimized for SEO and accessibility.',
-    image: '/images/aplus-truffles.webp',
+    image: '/Apluslogo.webp',
     link: 'https://aplustruffles.com',
   },
   {
     title: 'Elite Spotless',
     description: 'Luxury cleaning service site with quote forms, optimized for conversions.',
-    image: '/images/elite-spotless.webp',
+    image: '/ecslogo.webp',
     link: 'https://elitespotless.com',
   },
   // Add more projects if needed
@@ -22,6 +23,8 @@ const projects = [
 
 export default function ProjectsPage() {
   return (
+    <>
+    <Navbar/>
     <section className="max-w-6xl mx-auto px-6 py-16">
       {/* PROJECTS SECTION */}
       <h1 className="text-4xl md:text-5xl font-bold text-center mb-12 text-gray-900 dark:text-white">
@@ -39,6 +42,7 @@ export default function ProjectsPage() {
                 src={project.image}
                 alt={project.title}
                 fill
+                sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
                 className="object-cover group-hover:scale-105 transition-transform duration-500"
               />
             </div>
@@ -115,5 +119,6 @@ export default function ProjectsPage() {
         }
       `}</style>
     </section>
+    </>
   )
 }
