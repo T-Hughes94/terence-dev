@@ -37,7 +37,8 @@ export default function HeroSection() {
       )}
 
       {/* Hero Text */}
-      <h1 className="text-4xl md:text-6xl font-bold text-gray-900 dark:text-white mb-6 leading-tight relative overflow-hidden">
+      <h1 className="text-4xl md:text-6xl font-bold text-gray-900 dark:text-white mb-6 leading-[1.2] relative">
+
         {/** Title */}
         <span
           className={`relative inline-block text-green-500 dark:text-red-400 ${
