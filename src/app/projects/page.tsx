@@ -24,7 +24,7 @@ export default function ProjectsPage() {
     <>
       <Navbar />
       <section className="max-w-6xl mx-auto px-6 py-16">
-        {/* PROJECTS SECTION */}
+        {/* Projects */}
         <h1 className="text-4xl md:text-5xl font-bold text-center mb-12 text-gray-900 dark:text-white">
           Featured Projects
         </h1>
@@ -33,7 +33,7 @@ export default function ProjectsPage() {
           {projects.map((project, index) => (
             <div
               key={index}
-              className="group bg-white dark:bg-gray-900 rounded-lg shadow-lg overflow-hidden transform transition-all hover:scale-105 hover:shadow-2xl animate-fade-in-up"
+              className="group bg-white dark:bg-gray-900 rounded-xl shadow-xl overflow-hidden transition-transform transform hover:scale-[1.02] animate-fade-in-up"
             >
               <div className="relative w-full h-60">
                 <Image
@@ -41,17 +41,16 @@ export default function ProjectsPage() {
                   alt={project.title}
                   fill
                   sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
-                  className="object-cover group-hover:scale-105 transition-transform duration-500"
+                  className="object-cover transition-transform duration-500 group-hover:scale-105"
                 />
               </div>
-
-              <div className="p-6 flex flex-col gap-4">
-                <h2 className="text-2xl font-bold text-gray-800 dark:text-white">{project.title}</h2>
-                <p className="text-gray-600 dark:text-gray-300">{project.description}</p>
+              <div className="p-6 space-y-3">
+                <h2 className="text-xl font-semibold text-gray-800 dark:text-white">{project.title}</h2>
+                <p className="text-gray-600 dark:text-gray-300 text-sm">{project.description}</p>
                 <Link
                   href={project.link}
                   target="_blank"
-                  className="mt-4 inline-block px-6 py-2 rounded-full bg-green-500 text-white font-semibold hover:bg-green-600 dark:bg-red-500 dark:hover:bg-red-600 transition-colors shadow hover:shadow-lg"
+                  className="inline-block mt-4 px-5 py-2 rounded-full bg-green-500 dark:bg-red-500 text-white font-medium hover:bg-green-600 dark:hover:bg-red-600 transition"
                 >
                   View Project
                 </Link>
@@ -60,57 +59,80 @@ export default function ProjectsPage() {
           ))}
         </div>
 
-        {/* PRICING SECTION */}
+        {/* Pricing */}
         <div className="mt-24">
           <h2 className="text-4xl md:text-5xl font-bold text-center mb-12 text-gray-900 dark:text-white">
             Pricing
           </h2>
 
-          <div className="grid gap-12 md:grid-cols-2">
+          <div className="grid gap-8 md:grid-cols-3">
             {/* One-Time Project */}
-            <div className="pricing-card">
-              <h3 className="text-2xl font-bold text-green-500 dark:text-white mb-4 text-center">Lump Sum</h3>
-              <ul className="text-gray-700 dark:text-gray-300 mb-6 space-y-3 text-sm">
-                <li>✅ Custom Design and Development</li>
-                <li>✅ $25/mo Hosting</li>
-                <li>✅ $100/Page after 5</li>
-                <li>✅ Add a blog (+$250)</li>
-                <li>🚫 24/7 Support</li>
-                <li>🚫 Unlimited Edits</li>
+            <div className="pricing-card-modern">
+              <h3 className="text-lg font-semibold text-gray-900 dark:text-white uppercase tracking-wide mb-2">
+                One-Time Project
+              </h3>
+              <p className="text-3xl font-bold text-gray-900 dark:text-white mb-4">$3000–$4000</p>
+              <p className="text-sm text-gray-600 dark:text-gray-300 mb-6">
+                Tailored website for your business with built-in SEO and analytics, hosted on Vercel for maximum performance.
+              </p>
+              <ul className="space-y-2 text-sm text-gray-700 dark:text-gray-300 mb-6">
+                <li>✓ Custom Design & Development</li>
+                <li>✓ SEO Optimization</li>
+                <li>✓ Google Analytics Setup</li>
+                <li>✓ $25/month hosting</li>
               </ul>
-              <p className="text-4xl font-extrabold text-gray-900 dark:text-white text-center mb-2">$3800</p>
-              <p className="text-center text-sm text-gray-500 dark:text-gray-400 mb-6">+ $25/mo hosting</p>
-              <div className="text-center">
-                <Link
-                  href="/contact"
-                  className="inline-block px-8 py-3 rounded-full bg-green-500 dark:bg-red-500 text-white font-semibold hover:bg-green-600 dark:hover:bg-red-600 shadow-lg transition-colors"
-                >
-                  Get Started
-                </Link>
-              </div>
+              <Link
+                href="/contact"
+                className="block w-full text-center px-6 py-2 rounded-md bg-green-500 dark:bg-red-500 text-white font-semibold hover:bg-green-600 dark:hover:bg-red-600 transition"
+              >
+                Start Your Project
+              </Link>
             </div>
 
-            {/* Monthly Retainer */}
-            <div className="pricing-card">
-              <h3 className="text-2xl font-bold text-green-500 dark:text-white mb-4 text-center">Monthly</h3>
-              <ul className="text-gray-700 dark:text-gray-300 mb-6 space-y-3 text-sm">
-                <li>✅ Design and Hosting Included</li>
-                <li>✅ Unlimited Edits</li>
-                <li>✅ Analytics Reports</li>
-                <li>✅ 24/7 Support</li>
-                <li>✅ Lifetime Updates</li>
-                <li>✅ SEO & Blog Add-ons</li>
+            {/* Monthly Retainer (Middle Card) */}
+            <div className="pricing-card-modern featured-card">
+              <h3 className="text-lg font-semibold text-gray-900 dark:text-white uppercase tracking-wide mb-2">
+                Monthly Retainer
+              </h3>
+              <p className="text-3xl font-bold text-gray-900 dark:text-white mb-4">$150/mo</p>
+              <p className="text-sm text-gray-600 dark:text-gray-300 mb-6">
+                Ongoing hosting, maintenance, analytics reports, unlimited updates, and 24/7 support to help your business grow.
+              </p>
+              <ul className="space-y-2 text-sm text-gray-700 dark:text-gray-300 mb-6">
+                <li>✓ Unlimited Edits</li>
+                <li>✓ Monthly Analytics Reports</li>
+                <li>✓ Hosting & Security</li>
+                <li>✓ Dedicated Support</li>
               </ul>
-              <p className="text-4xl font-extrabold text-gray-900 dark:text-white text-center mb-2">$150</p>
-              <p className="text-center text-sm text-gray-500 dark:text-gray-400 mb-6">per month</p>
-              <div className="text-center">
-                <Link
-                  href="/contact"
-                  className="inline-block px-8 py-3 rounded-full bg-green-500 dark:bg-red-500 text-white font-semibold hover:bg-green-600 dark:hover:bg-red-600 shadow-lg transition-colors"
-                >
-                  Get Started
-                </Link>
-              </div>
+              <Link
+                href="/contact"
+                className="block w-full text-center px-6 py-2 rounded-md bg-green-500 dark:bg-red-500 text-white font-semibold hover:bg-green-600 dark:hover:bg-red-600 transition"
+              >
+                Get Started
+              </Link>
+            </div>
+
+            {/* Personal Portfolio */}
+            <div className="pricing-card-modern">
+              <h3 className="text-lg font-semibold text-gray-900 dark:text-white uppercase tracking-wide mb-2">
+                Personal Portfolio
+              </h3>
+              <p className="text-3xl font-bold text-gray-900 dark:text-white mb-4">Starting at $500</p>
+              <p className="text-sm text-gray-600 dark:text-gray-300 mb-6">
+                Clean, customizable portfolio to showcase your work and brand. Single-page or multi-page options available.
+              </p>
+              <ul className="space-y-2 text-sm text-gray-700 dark:text-gray-300 mb-6">
+                <li>✓ Modern SPA or Multi-Page</li>
+                <li>✓ Mobile Optimized</li>
+                <li>✓ SEO & Analytics Ready</li>
+                <li>✓ Scalable Add-ons</li>
+              </ul>
+              <Link
+                href="/contact"
+                className="block w-full text-center px-6 py-2 rounded-md bg-green-500 dark:bg-red-500 text-white font-semibold hover:bg-green-600 dark:hover:bg-red-600 transition"
+              >
+                Start Portfolio
+              </Link>
             </div>
           </div>
         </div>
@@ -129,43 +151,51 @@ export default function ProjectsPage() {
           }
 
           .animate-fade-in-up {
-            animation: fade-in-up 1s ease-out both;
+            animation: fade-in-up 0.8s ease-out both;
           }
 
-          .pricing-card {
-            background-color: white;
+          .pricing-card-modern {
             border-radius: 1rem;
-            padding: 2.5rem;
-            border: 1px solid #22c55e;
-            box-shadow:
-              0 0 15px rgba(34, 197, 94, 0.4),
-              0 0 30px rgba(34, 197, 94, 0.2),
-              0 0 45px rgba(34, 197, 94, 0.1);
-            transition:
-              transform 0.3s ease,
-              box-shadow 0.3s ease,
-              background-color 0.3s ease;
+            padding: 2rem;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
           }
 
-          .pricing-card:hover {
+          :global(html.dark) .pricing-card-modern {
+            background: #000000;
+            backdrop-filter: blur(12px);
+            box-shadow: 0 0 20px rgba(239, 68, 68, 0.4), 0 0 30px rgba(239, 68, 68, 0.2);
+            border: 1px solid rgba(239, 68, 68, 0.3);
+          }
+
+          :global(html.dark) .pricing-card-modern:hover {
             transform: scale(1.03);
+            box-shadow: 0 0 30px rgba(239, 68, 68, 0.5);
           }
 
-          :global(html.dark) .pricing-card {
-            background-color: #111827;
-            border-color: #ef4444;
-            box-shadow:
-              0 0 15px rgba(239, 68, 68, 0.4),
-              0 0 30px rgba(239, 68, 68, 0.2),
-              0 0 45px rgba(239, 68, 68, 0.1);
+          :global(html.light) .pricing-card-modern {
+            background: #ffffff;
+            border: 1px solid rgba(0, 0, 0, 0.05);
+            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.08);
+          }
+
+          :global(html.light) .pricing-card-modern:hover {
+            box-shadow: 0 15px 30px rgba(0, 0, 0, 0.1);
+          }
+
+          :global(html.light) .featured-card {
+            background-color: #f0fdf4;
+            box-shadow: 0 0 20px rgba(34, 197, 94, 0.15);
+            border: 1px solid rgba(34, 197, 94, 0.3);
+          }
+
+          :global(html.dark) .featured-card {
+            background-color: #000000;
+            box-shadow: 0 0 25px rgba(239, 68, 68, 0.4);
+            border: 1px solid rgba(239, 68, 68, 0.3);
           }
         `}</style>
       </section>
     </>
   )
 }
-
-
-
-
 
